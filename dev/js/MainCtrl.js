@@ -284,7 +284,7 @@ angular.module('MainCtrl', [])
                 height: 500,
                 margin : {
                     top: 10,
-                    right: 10,
+                    right: 20,
                     bottom: 40,
                     left: 55
                 },
@@ -361,6 +361,20 @@ angular.module('MainCtrl', [])
 
 
 		//Rs.run();
+
+		Rs.CSVHeaders = [ 'Run', 'Trade', 'Win', 'Equity' ];
+		Rs.getCSV = () => {
+			var CSV = [];
+
+			Ctrl.Results.forEach((Run) => {
+				Run.trades.forEach((Trade) => {
+					CSV.push([ Run.run, Trade.trade, Trade.win, d3.format('.2f')(Trade.eq) ]);
+				});
+
+			});
+
+			return CSV;
+		};
 
 	}
 ]);

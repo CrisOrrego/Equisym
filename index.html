@@ -1,8 +1,9 @@
 <html lang="en" >
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script type="text/javascript" src="js/libs.js"></script> 
-	<script type="text/javascript" src="js/app.js"></script> 
+	<script type="text/javascript" src="js/libs.js?201809190323"></script> 
+	<script type="text/javascript" src="js/app.js?201809190323"></script> 
+	<link rel="stylesheet"	href="https://fonts.googleapis.com/css?family=Lato:400,700" >
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-app="Equisym" ng-cloak layout="column" ng-controller="MainCtrl">
@@ -13,9 +14,9 @@
 	</div>
 	
 
-	<div id="Main" flex layout=column layout-gt-xs=row>
+	<div id="Main" flex layout=column layout-gt-xs=row class="overflow-y">
 	
-	<div id="Inputs" class="w250 well margin-but-top border-radius" layout="column">
+	<div id="Inputs" class="well margin-but-top border-radius" layout="column">
 		
 		<div class="overflow padding" flex-gt-xs layout=column>
 
@@ -76,15 +77,16 @@
 
 	</div>
 
-	<div flex-gt-xs layout=column layout-gt-sm=row>
+	<div flex-gt-xs layout=column layout-gt-sm=row class="overflow-y">
+
 		<div id="Results" flex-gt-sm class="" layout=column>
 			
-			<div id="Progress" flex layout layout-align="center center" ng-show="Inputs.calculating" style="margin: 0 0 50px 0">
+			<div id="Progress" flex layout layout-align="center center" ng-show="Inputs.calculating" class="mh80" style="">
 				<md-progress-circular md-mode="indeterminate"  md-diameter="60" ></md-progress-circular>
-				<img src="img/Dorrasset.png" class="h80 margin-left">
+				<img src="img/Dorrasset.png" class="h60 margin-left">
 			</div>
 			
-			<div id="Chart" >
+			<div id="Chart" class="margin-bottom">
 				<md-subheader class="md-primary text-bold no-padding margin" ng-if="Inputs.calcDone">Graph</md-subheader>
 				<nvd3 class="margin-bottom" options="chartOps" data="chartData" config="chartConfig" api="chartApi" ng-if="Inputs.calcDone"></nvd3>
 			</div>
@@ -92,7 +94,7 @@
 
 		</div>
 
-		<div layout=column class="w300 margin-but-top overflow" ng-show="Inputs.calcDone">
+		<div id="Results_Indicators" layout=column class="mw300 margin-but-top overflow" ng-show="Inputs.calcDone">
 			<div class="well border-radius margin-bottom"  layout=column md-whiteframe=1>
 				<md-subheader class="md-primary text-bold no-padding margin">Results</md-subheader>
 				<table class="Results_table">
@@ -114,11 +116,11 @@
 				
 			</div>
 			<span flex></span>
-			<md-button class="well md-raised md-primarys text-bold" aria-label="btn" hide>
+			<md-button class="well md-raised md-primarys text-bold" aria-label="btn"
+				csv-header="CSVHeaders" ng-csv="getCSV" filename="SimulationData.csv" field-separator=";">
 				<md-icon md-font-icon="fa-download"></md-icon>
 				Download Data
 			</md-button>
-			<pre hide>{{ chartOps | json }}</pre>
 		</div>
 	</div>
 

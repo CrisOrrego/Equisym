@@ -2,8 +2,10 @@ angular.module('Equisym',
 [
 	'ngMaterial', 
 	'ngMessages',
+	'ngSanitize',
+	'ngCsv',
 	'nvd3',
-		
+
 	'appConfig',
 
 	'MainCtrl'

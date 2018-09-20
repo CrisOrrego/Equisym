@@ -2,6 +2,15 @@
 @import (inline) 'angular-material.min.css';
 @import (inline) 'nv.d3.min.css';
 
+html{
+    font-family: 'Lato', sans-serif !important;
+    overflow: hidden;
+}
+
+.nvd3 text, .nvtooltip{
+    font-family: 'Lato', sans-serif !important;
+}
+
 //General
 .margin{ margin: 10px; }
 .padding{ padding: 10px; }
@@ -291,4 +300,13 @@
 
 *{
 	flex: none;
+}
+
+
+@media (min-width: 600px) {//md
+
+    #Inputs{
+        width: 270px;
+    }
+
 }
