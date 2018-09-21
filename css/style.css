@@ -18,6 +18,9 @@ html {
 .nvtooltip {
   font-family: 'Lato', sans-serif !important;
 }
+.md-dialog-container {
+  position: fixed;
+}
 .margin {
   margin: 10px;
 }
@@ -4207,7 +4210,10 @@ html {
 .Results_table .result-key {
   color: #9a9a9a;
   font-size: 0.9em;
-  padding: 5px 0 5px 10px;
+  padding: 5px 0 5px 5px;
+}
+.Results_table .result-key button {
+  margin: -8px -4px -8px -5px;
 }
 .Results_table .result-value {
   text-align: right;
@@ -4219,8 +4225,14 @@ html {
 * {
   flex: none;
 }
+#TopBar .md-display-1 {
+  font-size: 4.6vw;
+}
 @media (min-width: 600px) {
   #Inputs {
     width: 270px;
+  }
+  #TopBar .md-display-1 {
+    font-size: 30px !important;
   }
 }

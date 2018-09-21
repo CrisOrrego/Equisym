@@ -11,6 +11,8 @@ html{
     font-family: 'Lato', sans-serif !important;
 }
 
+.md-dialog-container{ position: fixed; }
+
 //General
 .margin{ margin: 10px; }
 .padding{ padding: 10px; }
@@ -285,7 +287,11 @@ html{
     .result-key{
     	color: #9a9a9a;
     	font-size: 0.9em;
-    	padding: 5px 0 5px 10px;
+    	padding: 5px 0 5px 5px;
+
+        button{
+            margin: -8px -4px -8px -5px;
+        }
     }
 
     .result-value{
@@ -302,11 +308,23 @@ html{
 	flex: none;
 }
 
+#TopBar{
+
+    .md-display-1{
+        font-size: 4.6vw;
+    }
+}
 
 @media (min-width: 600px) {//md
 
     #Inputs{
         width: 270px;
+    }
+
+    #TopBar{
+        .md-display-1{
+            font-size: 30px !important;
+        }
     }
 
 }

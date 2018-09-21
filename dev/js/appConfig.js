@@ -1,6 +1,6 @@
 angular.module('appConfig', [])
-.config(['$mdThemingProvider', '$mdIconProvider', '$mdThemingProvider', 
-	function($mdThemingProvider, $mdIconProvider, $mdThemingProvider){
+.config(['$mdThemingProvider', '$mdIconProvider', '$mdThemingProvider', '$translateProvider', 
+	function($mdThemingProvider, $mdIconProvider, $mdThemingProvider, $translateProvider){
 
 		var icons = {
 			'md-plus' 			: '<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>',
@@ -63,5 +63,93 @@ angular.module('appConfig', [])
 
 		$mdThemingProvider.theme('default')
 			.primaryPalette('DorrAssetPallete');
+			
+
+
+		//Translation
+		var translations = {
+			"en" : {
+				"APP_NAME": 				"Equity Curve Simulator",
+				"PARAMETERS": 				"Parámeters",
+				"STARTING_EQ": 				"Starting Equity",
+				"RISK_PER_TRADE": 			"Risk per Trade",
+				"WIN_PROB": 				"Win Probability",
+				"WIN_LOSS_REL": 			"Win:Loss Relation",
+				"TRADES_PER_RUN": 			"Trades per Run",
+				"RUNS_LINES":       		"Scenarios (Lines)", 
+				"GRAPH_SCALE":      		"Graph Scale", 
+				"RUN_SIMULATION": 			"Run Simulation", 
+
+				"GRAPH": 					"Graph",
+				"TRADE": 					"Trade",
+				"EQ": 						"Equity",
+				"MAX": 						"Maximum",
+				"MIN": 						"Minimum",
+				"AVG": 						"Average",
+
+				"RESULTS": 					"Results",
+				"KELLY": 					"Kelly",
+				"EXPECTATION": 				"Expectation",
+				"MAX_DRAWDOWN": 			"Max. Drawdown",
+				"AVG_MAX_DRAWDOWN": 		"Avg. Max Drawdown",
+				"MIN_EQ": 					"Min. Equity",
+				"MAX_EQ": 					"Max. Equity",
+				"MAX_CONSEC_WINS": 			"Max. Consecutive Wins",
+				"MAX_CONSEC_LOSES": 		"Max. Consecutive Loses",
+				"AVG_PERFORMANCE": 			"Avg. Performance",
+				"RETURN_MAX_DRAWDOWN": 		"Return on Max Drawdown",
+				"DOWNLOAD_DATA": 			"Download Data",
+
+				"GOT_IT": 					"Got It",
+				"H_KELLY": 					"Kelly is this..",
+			},
+			"es" : {
+				"APP_NAME": 				"Simulador de Curva de Capital",
+				"PARAMETERS": 				"Parámetros",
+				"STARTING_EQ": 				"Capital Inicial",
+				"RISK_PER_TRADE": 			"Riesgo por Transacción",
+				"WIN_PROB": 				"Probabilidad de Ganar",
+				"WIN_LOSS_REL": 			"Relación Ganancia:Pérdida",
+				"TRADES_PER_RUN": 			"Transacciones por Escenario",
+				"RUNS_LINES":       		"Escenarios (Lineas)", 
+				"GRAPH_SCALE":      		"Escala de la Gráfica", 
+				"RUN_SIMULATION": 			"Correr Simulación", 
+
+				"GRAPH": 					"Gráfica",
+				"TRADE": 					"Transacción", 
+				"EQ": 						"Capital", 
+				"MAX": 						"Máximo",
+				"MIN": 						"Mínimo",
+				"AVG": 						"Promedio",
+
+				"RESULTS": 					"Resultados",
+				"KELLY": 					"Criterio Kelly",
+				"EXPECTATION": 				"Expectativa",
+				"MAX_DRAWDOWN": 			"Reducción Máx.",
+				"AVG_MAX_DRAWDOWN": 		"Reducción Máx. Prom.",
+				"MIN_EQ": 					"Capital Min.",
+				"MAX_EQ": 					"Capital Max.",
+				"MAX_CONSEC_WINS": 			"Ganancias Consecutivas Máx.",
+				"MAX_CONSEC_LOSES": 		"Perdidas Consecutivas Máx.",
+				"AVG_PERFORMANCE": 			"Desempeño Prom.",
+				"RETURN_MAX_DRAWDOWN": 		"Retorno en Reducción Máx.",
+				"DOWNLOAD_DATA": 			"Descargar Datos",
+
+				"GOT_IT": 					"Entendido",
+				"H_KELLY": 					"El Criterio Kelly consiste en",
+			},
+
+		};
+		
+		//translations = $sce.trustAsHtml(translations);
+
+		$translateProvider
+			.useSanitizeValueStrategy('escape')
+			.translations('en', translations.en)
+			.translations('es', translations.es)
+			.preferredLanguage('en');
+
+
+
   }
 ]);

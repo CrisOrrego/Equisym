@@ -1,9 +1,10 @@
 angular.module('MainCtrl', [])
-.controller('MainCtrl', ['$scope', '$rootScope', '$timeout',
-	function ($scope, $rootScope, $timeout) {
+.controller('MainCtrl', ['$scope', '$rootScope', '$timeout', '$translate', '$mdDialog', '$localStorage', '$window', 
+	function ($scope, $rootScope, $timeout, $translate, $mdDialog, $localStorage, $window) {
 		
 		Rs = $scope;
 		var Ctrl = {};
+		var t = $translate.instant;
 
 		Rs.Inputs = {
 			currencySymbol: '$',
@@ -296,14 +297,14 @@ angular.module('MainCtrl', [])
                 },
                 x: function(d){ return d.x; },
                 y: function(d){ if(d) return d.y; },
-                noData: 'Sin Datos',
+                noData: 'No Data',
                 useInteractiveGuideline: true,
                 showLegend: false,
                 xAxis: {
-                    axisLabel: 'Trade #'
+                    axisLabel: ''
                 },
                 yAxis: {
-                    axisLabel: 'Equity (' + Rs.Inputs.currencySymbol + ')',
+                    axisLabel: '',
                     tickFormat: function(d){
                         return d3.format(',.0f')(d);
                     },
@@ -317,14 +318,14 @@ angular.module('MainCtrl', [])
                 		contentGenerator: (d) => {
                 			if (d === null || d.value == 0) { return ''; }
 
-                			//console.log(d);
+                			//console.log(d,a);
                 			TD = Ctrl.TData[(d.value - 1)];
 
-                			var table = "<table><thead><tr><td class=x-value colspan=2><span class='tooltip text-bold text-green'>Trade #" + d.value + "</span></td></tr></thead><tbody>";
+                			var table = "<table><thead><tr><td class=x-value colspan=2><span class='tooltip text-bold text-green'>" +t('TRADE')+ " #" + d.value + "</span></td></tr></thead><tbody>";
 
-                			table += "<tr><td class=key>Average:</td><td class=value>" + d3.format(',.2f')(TD.avg) + "<td><tr>";
-                			table += "<tr><td class=key>Max:</td><td class=value>" + d3.format(',.2f')(TD.max) + "<td><tr>";
-                			table += "<tr><td class=key>Min:</td><td class=value>" + d3.format(',.2f')(TD.min) + "<td><tr>";
+                			table += "<tr><td class=key>" +t('AVG')+ ":</td><td class=value>" + d3.format(',.2f')(TD.avg) + "<td><tr>";
+                			table += "<tr><td class=key>" +t('MAX')+ ":</td><td class=value>" + d3.format(',.2f')(TD.max) + "<td><tr>";
+                			table += "<tr><td class=key>" +t('MIN')+ ":</td><td class=value>" + d3.format(',.2f')(TD.min) + "<td><tr>";
 
                 			table += "</tbody></table>";
 
@@ -360,7 +361,7 @@ angular.module('MainCtrl', [])
         };
 
 
-		//Rs.run();
+		Rs.run();
 
 		Rs.CSVHeaders = [ 'Run', 'Trade', 'Win', 'Equity' ];
 		Rs.getCSV = () => {
@@ -375,6 +376,46 @@ angular.module('MainCtrl', [])
 
 			return CSV;
 		};
+
+
+		//Indicators Help
+		Rs.IndHelp = (ev, k) => {
+			$mdDialog.show(
+				$mdDialog.alert()
+					.clickOutsideToClose(true).targetEvent(ev).fullscreen(false)
+					.title(t(k))
+					.textContent(t('H_'+k))
+					.ok(t('GOT_IT'))
+			);
+		};
+
+
+
+		//Cambio de Lenguaje
+		Rs.Languages = [
+			{ id: 'en', name: 'English' },
+			{ id: 'es', name: 'Español' },
+		];
+
+		var navLan = $window.navigator.language || $window.navigator.userLanguage;
+		if(navLan){
+			navLan = navLan.substring(0,2);
+			if( (['en','es']).indexOf(navLan) == -1 ) navLan = 'en';
+		}else{
+			navLan = 'en';
+		};
+
+		Rs.Storage = $localStorage.$default({
+			Lang: navLan
+		});
+
+		Rs.changeLang = () => {
+			$translate.use(Rs.Storage.Lang);
+			Rs.chartOps.chart.xAxis.axisLabel = t('TRADE') + ' #';
+			Rs.chartOps.chart.yAxis.axisLabel = t('EQ') + ' (' + Rs.Inputs.currencySymbol + ')';
+		};
+		Rs.changeLang();
+		
 
 	}
 ]);

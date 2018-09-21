@@ -4,7 +4,9 @@
 //@koala-prepend "libs/angular-messages.min.js";
 //@koala-prepend "libs/angular-material.min.js";
 //@koala-prepend "libs/angular-sanitize.min.js";
+//@koala-prepend "libs/angular-translate.min.js";
 //@koala-prepend "libs/d3.min.js";
 //@koala-prepend "libs/nv.d3.min.js";
 //@koala-prepend "libs/angular-nvd3.min.js";
 //@koala-prepend "libs/ng-csv.js";
+//@koala-prepend "libs/ngStorage.min.js";
