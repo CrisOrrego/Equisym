@@ -224,6 +224,16 @@ angular.module('MainCtrl', [])
 			//console.log(Ctrl.TData);
 			Ctrl.calcVars();
 
+			//Ajustar eje Y
+			
+			var maxEqLen = Math.ceil(Ctrl.Control.maxEq).toString().length;
+			maxEqLen = Math.max(maxEqLen, 2);
+			Rs.chartOps.chart.margin.left = (maxEqLen * 10) + 20;
+			Rs.chartOps.chart.yAxis.axisLabelDistance = (maxEqLen * 10) - 50;
+
+			//console.log(Math.ceil(Ctrl.Control.maxEq).toString());
+
+
 			Rs.chartData = Data;
 			
 			Rs.Inputs.calculating = false;
@@ -272,10 +282,11 @@ angular.module('MainCtrl', [])
 
 			//Perf
 			v.avgPerfAbs = d3.format(',.2f')(c.lastTAvg - i.startingEq);
-			v.avgPerf 	 = d3.format(',.2%')((+v.avgPerfAbs) / i.startingEq);
+			v.avgPerf 	 = d3.format(',.2%')((c.lastTAvg - i.startingEq) / i.startingEq);
 
 			v.retMaxDD	 = d3.format(',.2%')((c.lastTAvg - (c.maxTAvg - v.avgMaxDDRaw)) / (c.maxTAvg - v.avgMaxDDRaw));
 
+			console.log(v);
 			Rs.Vars = v;
 		};
 
@@ -287,7 +298,7 @@ angular.module('MainCtrl', [])
                     top: 10,
                     right: 20,
                     bottom: 40,
-                    left: 55
+                    left: 50
                 },
                 pointSize: (d) => {
                 	return d.size || 4;
@@ -308,7 +319,7 @@ angular.module('MainCtrl', [])
                     tickFormat: function(d){
                         return d3.format(',.0f')(d);
                     },
-                    axisLabelDistance: -10
+                    axisLabelDistance: -20
                 },
                 color: ['#88A80B','#BCDA45','#A7CB1B','#6F8B00','#526700','#579E0A','#8ACD41','#70BF19','#448300','#326100','#AFAA0B','#E3DE48','#D4CE1C','#918C00','#6B6800'],
                 interpolate: 'monotone',
@@ -361,7 +372,7 @@ angular.module('MainCtrl', [])
         };
 
 
-		Rs.run();
+		
 
 		Rs.CSVHeaders = [ 'Run', 'Trade', 'Win', 'Equity' ];
 		Rs.getCSV = () => {
@@ -416,6 +427,6 @@ angular.module('MainCtrl', [])
 		};
 		Rs.changeLang();
 		
-
+		//Rs.run();
 	}
 ]);

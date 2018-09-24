@@ -70,7 +70,7 @@ angular.module('appConfig', [])
 		var translations = {
 			"en" : {
 				"APP_NAME": 				"Equity Curve Simulator",
-				"PARAMETERS": 				"Parámeters",
+				"PARAMETERS": 				"Parameters",
 				"STARTING_EQ": 				"Starting Equity",
 				"RISK_PER_TRADE": 			"Risk per Trade",
 				"WIN_PROB": 				"Win Probability",
@@ -101,7 +101,17 @@ angular.module('appConfig', [])
 				"DOWNLOAD_DATA": 			"Download Data",
 
 				"GOT_IT": 					"Got It",
-				"H_KELLY": 					"Kelly is this..",
+				"H_KELLY": 					"Kelly bet is a formula used to determine the optimal size of a series of bets in order to maximize the logarithm of wealth, the right approach would be to bet the percentage Kelly determines of the pot on each throw. if losing, the size of the bet gets cut; if winning, the stake increases",
+				"H_EXPECTATION": 			"The expected value is the sum of: [(each of the possible outcomes) × (the probability of the outcome occurring)]. In more concrete terms, the expectation is what you would expect the outcome of an experiment to be on average",
+				"H_MAX_DRAWDOWN": 			"Maximum Drawdown (MDD) is an indicator of downside risk over a specified time period. MDD = (Trough Value – Peak Value) ÷ Peak Value",
+				"H_RETURN_MAX_DRAWDOWN": 	"Return over maximum drawdown (RoMaD) is a risk-adjusted return metric. RoMaD = Portfolio Return / Max. Drawdown",
+				"H_AVG_MAX_DRAWDOWN": 		"The metric will calculate the maximum drawdown of each possible scenario (each line), then he will sum these values. Then the calculated sum is divided by the counter value",
+				"H_MIN_EQ": 				"Is the lowest equity value obtained in all the possible scenarios",
+				"H_MAX_EQ": 				"Is the highest equity value obtained in all the possible scenarios",
+				"H_AVG_PERFORMANCE": 		"Measures the average of the returns on the investments done over a specific period. It can be positive, representing a gain in value, or negative, representing a loss",
+				"H_MAX_CONSEC_WINS": 		"Is the maximum number of consecutive wins on the trades",
+				"H_MAX_CONSEC_LOSES": 		"Is the maximum number of consecutive losses on the trades",
+				
 			},
 			"es" : {
 				"APP_NAME": 				"Simulador de Curva de Capital",
@@ -136,7 +146,16 @@ angular.module('appConfig', [])
 				"DOWNLOAD_DATA": 			"Descargar Datos",
 
 				"GOT_IT": 					"Entendido",
-				"H_KELLY": 					"El Criterio Kelly consiste en",
+				"H_KELLY": 					"El criterio Kelly es una fórmula utilizada para determinar el tamaño óptimo de una serie de apuestas para maximizar el logaritmo de la ganancia, el enfoque correcto sería apostar el porcentaje que Kelly determine del bote en cada lanzamiento. si pierde, el tamaño de la apuesta se corta; si gana, la apuesta aumenta",
+				"H_EXPECTATION": 			"El valor esperado es la suma de: [(cada uno de los posibles resultados) × (la probabilidad de que se produzca el resultado)]. En términos más concretos, la expectativa es lo que esperarías que el resultado de un experimento fuera en promedio",
+				"H_MAX_DRAWDOWN": 			"La Reducción Máxima (MDD) es un indicador de riesgo a la baja durante un período de tiempo específico. MDD = (Valor mínimo - Valor máximo) ÷ Valor máximo",
+				"H_RETURN_MAX_DRAWDOWN": 	"El retorno sobre la reducción máxima (RoMaD) es una métrica de retorno ajustada al riesgo. RoMaD = Retorno de portafolio / Máx. Reducción",
+				"H_AVG_MAX_DRAWDOWN": 		"La métrica calculará la reducción máxima de cada posible escenario (cada línea), luego sumará estos valores. Entonces, la suma calculada se divide por el valor del contador",
+				"H_MIN_EQ": 				"Es el capital más bajo obtenido en todos los escenarios posibles",
+				"H_MAX_EQ": 				"Es el capital más alto obtenido en todos los escenarios posibles",
+				"H_AVG_PERFORMANCE": 		"Mide el promedio de los rendimientos de las inversiones realizadas durante un período específico. Puede ser positivo, representando una ganancia en valor, o negativo, representando una pérdida",
+				"H_MAX_CONSEC_WINS": 		"Es la cantidad máxima de victorias consecutivas en las transacciones",
+				"H_MAX_CONSEC_LOSES": 		"Es la cantidad máxima de pérdidas consecutivas en las transacciones",
 			},
 
 		};
