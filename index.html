@@ -10,7 +10,7 @@
 <body ng-app="Equisym" ng-cloak layout="column" ng-controller="MainCtrl" class="overflow-y">
 
 	<div id="TopBar" layout class="padding" layout-wrap>
-		<img src="img/Dorrasset.png" class="h40 margin-right">
+		<img src="img/Dorrasset.png" class="h40 margin-right" hide>
 		<div flex-xs=100 flex-gt-xs="auto" layout>
 			<h1 class="md-display-1 no-margin" flex md-truncate>{{ 'APP_NAME' | translate }}</h1>
 
@@ -113,18 +113,18 @@
 				<md-subheader class="md-primary text-bold no-padding margin">{{ 'RESULTS' | translate }}</md-subheader>
 				<table class="Results_table">
 					<body>
-						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'KELLY')">				<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'KELLY' | translate }}</td> 											<td class="result-value">{{ Vars.Kelly }}</td></tr>
-						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'EXPECTATION')">			<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'EXPECTATION' | translate }}</td> 									<td class="result-value">{{ Vars.Expectation }}</td></tr>
+						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'AVG_PERFORMANCE')">		<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'AVG_PERFORMANCE' | translate }}</td> 	   							<td class="result-value">{{ Vars.avgPerf }}</td></tr>
+						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'AVG_PERFORMANCE')">		<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'AVG_PERFORMANCE' | translate }} ({{ Inputs.currencySymbol }})</td> 	<td class="result-value">{{ Inputs.currencySymbol + Vars.avgPerfAbs }}</td></tr>
 						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'MAX_DRAWDOWN')">		<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'MAX_DRAWDOWN' | translate }}</td> 			      					<td class="result-value">{{ Vars.maxDD }}</td></tr>
 						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'MAX_DRAWDOWN')">		<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'MAX_DRAWDOWN' | translate }} ({{ Inputs.currencySymbol }})</td> 		<td class="result-value">{{ Inputs.currencySymbol + Vars.maxDDAbs }}</td></tr>
 						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'AVG_MAX_DRAWDOWN')">	<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'AVG_MAX_DRAWDOWN' | translate }}</td> 								<td class="result-value">{{ Vars.avgMaxDD }}</td></tr>
-						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'MIN_EQ')">				<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'MIN_EQ' | translate }}</td> 											<td class="result-value">{{ Inputs.currencySymbol + Vars.minEq }}</td></tr>
+						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'RETURN_MAX_DRAWDOWN')">	<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'RETURN_MAX_DRAWDOWN' | translate }}</td> 	   						<td class="result-value">{{ Vars.retMaxDD }}</td></tr>
 						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'MAX_EQ')">				<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'MAX_EQ' | translate }}</td> 											<td class="result-value">{{ Inputs.currencySymbol + Vars.maxEq }}</td></tr>
+						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'MIN_EQ')">				<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'MIN_EQ' | translate }}</td> 											<td class="result-value">{{ Inputs.currencySymbol + Vars.minEq }}</td></tr>
 						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'MAX_CONSEC_WINS')">		<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'MAX_CONSEC_WINS' | translate }}</td> 								<td class="result-value">{{ Vars.maxCW }}</td></tr>
 						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'MAX_CONSEC_LOSES')">	<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'MAX_CONSEC_LOSES' | translate }}</td> 	   							<td class="result-value">{{ Vars.maxCL }}</td></tr>
-						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'AVG_PERFORMANCE')">		<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'AVG_PERFORMANCE' | translate }}</td> 	   							<td class="result-value">{{ Vars.avgPerf }}</td></tr>
-						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'AVG_PERFORMANCE')">		<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'AVG_PERFORMANCE' | translate }} ({{ Inputs.currencySymbol }})</td> 	<td class="result-value">{{ Inputs.currencySymbol + Vars.avgPerfAbs }}</td></tr>
-						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'RETURN_MAX_DRAWDOWN')">	<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'RETURN_MAX_DRAWDOWN' | translate }}</td> 	   						<td class="result-value">{{ Vars.retMaxDD }}</td></tr>
+						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'EXPECTATION')">			<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'EXPECTATION' | translate }}</td> 									<td class="result-value">{{ Vars.Expectation }}</td></tr>
+						<tr><td class="result-key"><md-button class="md-icon-button" ng-click="IndHelp($event, 'KELLY')">				<md-icon md-font-icon="fa-question-circle fa-fw"></md-icon></md-button>{{ 'KELLY' | translate }}</td> 											<td class="result-value">{{ Vars.Kelly }}</td></tr>
 					</body>
 				</table>
 				

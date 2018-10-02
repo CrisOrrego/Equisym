@@ -427,6 +427,6 @@ angular.module('MainCtrl', [])
 		};
 		Rs.changeLang();
 		
-		//Rs.run();
+		Rs.run();
 	}
 ]);
