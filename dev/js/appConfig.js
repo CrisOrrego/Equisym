@@ -99,6 +99,7 @@ angular.module('appConfig', [])
 				"EXPECTATION": 				"Expectation",
 				"KELLY": 					"Kelly Criterion",
 				"DOWNLOAD_DATA": 			"Download Data",
+				"PRINT": 					"Print",
 
 				"GOT_IT": 					"Got It",
 				"H_AVG_PERFORMANCE": 		"Measures the average of the returns on the investments done over a specific period. It can be positive, representing a gain in value, or negative, representing a loss",
@@ -144,6 +145,7 @@ angular.module('appConfig', [])
 				"EXPECTATION": 				"Expectativa",
 				"KELLY": 					"Criterio Kelly",
 				"DOWNLOAD_DATA": 			"Descargar Datos",
+				"PRINT": 					"Imprimir",
 
 				"GOT_IT": 					"Entendido",
 				"H_AVG_PERFORMANCE": 		"Mide el promedio de los rendimientos de las inversiones realizadas durante un período específico. Puede ser positivo, representando una ganancia en valor, o negativo, representando una pérdida",

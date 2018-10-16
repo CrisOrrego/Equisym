@@ -111,6 +111,7 @@ angular.module('MainCtrl', [])
 			}else{
 				//Finish
 				console.log('Termine');
+
 				Ctrl.finishCalc();
 			};
 		};
@@ -286,7 +287,7 @@ angular.module('MainCtrl', [])
 
 			v.retMaxDD	 = d3.format(',.2%')((c.lastTAvg - (c.maxTAvg - v.avgMaxDDRaw)) / (c.maxTAvg - v.avgMaxDDRaw));
 
-			console.log(v);
+			//console.log(v);
 			Rs.Vars = v;
 		};
 
@@ -428,5 +429,17 @@ angular.module('MainCtrl', [])
 		Rs.changeLang();
 		
 		Rs.run();
+
+
+		//Calcular base URL
+		var winloc = $window.location.href.split('/');
+		var winstr = winloc[0] + '/';
+		for (var i = 2; i < (winloc.length-1); i++) {
+			winstr = winstr + '/' + winloc[i];
+		};
+		Rs.baseURL = winstr + '/';
+		Rs.Version = 201810160921;
+        
+
 	}
 ]);

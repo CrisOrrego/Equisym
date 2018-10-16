@@ -2,10 +2,10 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
-	<script type="text/javascript" src="js/libs.js?201809241209"></script> 
-	<script type="text/javascript" src="js/app.js?201809241209"></script> 
+	<script type="text/javascript" src="js/libs.js?201810160927"></script> 
+	<script type="text/javascript" src="js/app.js?201810160927"></script> 
 	<link rel="stylesheet"	href="https://fonts.googleapis.com/css?family=Lato:400,700" >
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css?201810160927">
 </head>
 <body ng-app="Equisym" ng-cloak layout="column" ng-controller="MainCtrl" class="overflow-y">
 
@@ -26,76 +26,87 @@
 
 	<div id="Main" flex layout=column layout-gt-xs=row class="">
 	
-	<div id="Inputs" class="well margin-but-top border-radius" layout="column">
+	<div id="Inputs" class="margin-but-top border-radius not-on-print" layout="column">
 		
-		<div class="overflow padding" flex-gt-xs layout=column>
+		<div class="well" layout=column>
+
+			<div class="overflow padding" layout=column>
 
 			<md-subheader class="md-primary text-bold no-padding margin-bottom">{{ 'PARAMETERS' | translate }}</md-subheader>
 
-		<md-input-container class="md-icon-float md-icon-right">
-			<label>{{ 'STARTING_EQ' | translate }}</label>
-			<input ng-model="Inputs.startingEq" type=number min=0>
-			<md-icon class="text-bold text-center text-icon">{{ Inputs.currencySymbol }}</md-icon>
-		</md-input-container>
+				<md-input-container class="md-icon-float md-icon-right">
+					<label>{{ 'STARTING_EQ' | translate }}</label>
+					<input ng-model="Inputs.startingEq" type=number min=0>
+					<md-icon class="text-bold text-center text-icon">{{ Inputs.currencySymbol }}</md-icon>
+				</md-input-container>
 
-		<div class="h70">
-			<div layout>
-			<md-input-container flex class="">
-				<label>{{ 'RISK_PER_TRADE' | translate }}</label>
-				<input ng-model="Inputs.risk" type=number min=0>
-			</md-input-container>
-			<md-select ng-model="Inputs.riskType" aria-label="select">
-				<md-option value="Percent">%</md-option>
-				<md-option value="Value">{{ Inputs.currencySymbol }}</md-option>
-			</md-select>
+				<div class="h70">
+					<div layout>
+					<md-input-container flex class="">
+						<label>{{ 'RISK_PER_TRADE' | translate }}</label>
+						<input ng-model="Inputs.risk" type=number min=0>
+					</md-input-container>
+					<md-select ng-model="Inputs.riskType" aria-label="select">
+						<md-option value="Percent">%</md-option>
+						<md-option value="Value">{{ Inputs.currencySymbol }}</md-option>
+					</md-select>
+					</div>
+				</div>
+
+				<span class="md-subheader label">{{ 'WIN_PROB' | translate }}</span>
+				<md-slider-container class="mh30">
+					<md-slider min="0" max="100" ng-model="Inputs.winProb" aria-label="Slider" class="md-primary"></md-slider>
+					<span class="text-bold lh25">{{ Inputs.winProb }}%</span>
+				</md-slider-container>
+
+				<md-input-container class="md-icon-right">
+					<label>{{ 'WIN_LOSS_REL' | translate }}</label>
+					<input ng-model="Inputs.winRatio" type=number min=0>
+					<md-icon class="text-bold text-center text-icon">:1</md-icon>
+				</md-input-container>
+
+				<span class="md-subheader label">{{ 'TRADES_PER_RUN' | translate }}</span>
+				<md-slider-container class="mh30">
+					<md-slider min="1" max="200" ng-model="Inputs.trades" aria-label="Slider" class="md-primary"></md-slider>
+					<span class="text-bold lh25">{{ Inputs.trades }}</span>
+				</md-slider-container>
+
+				<md-input-container class="">
+					<label>{{ 'RUNS_LINES' | translate }}</label>
+					<input ng-model="Inputs.runs" type=number min=0>
+				</md-input-container>
+
+				<md-input-container class="" hide>
+					<label>{{ 'GRAPH_SCALE' | translate }}</label>
+					<md-select ng-model="Inputs.scale" aria-label="select">
+						<md-option value="Normal">Normal</md-option>
+						<md-option value="Log">logarithmic</md-option>
+					</md-select>
+				</md-input-container>
+
 			</div>
-		</div>
 
-		<span class="md-subheader label">{{ 'WIN_PROB' | translate }}</span>
-		<md-slider-container class="mh30">
-			<md-slider min="0" max="100" ng-model="Inputs.winProb" aria-label="Slider" class="md-primary"></md-slider>
-			<span class="text-bold lh25">{{ Inputs.winProb }}%</span>
-		</md-slider-container>
-
-		<md-input-container class="md-icon-right">
-			<label>{{ 'WIN_LOSS_REL' | translate }}</label>
-			<input ng-model="Inputs.winRatio" type=number min=0>
-			<md-icon class="text-bold text-center text-icon">:1</md-icon>
-		</md-input-container>
-
-		<span class="md-subheader label">{{ 'TRADES_PER_RUN' | translate }}</span>
-		<md-slider-container class="mh30">
-			<md-slider min="1" max="200" ng-model="Inputs.trades" aria-label="Slider" class="md-primary"></md-slider>
-			<span class="text-bold lh25">{{ Inputs.trades }}</span>
-		</md-slider-container>
-
-		<md-input-container class="">
-			<label>{{ 'RUNS_LINES' | translate }}</label>
-			<input ng-model="Inputs.runs" type=number min=0>
-		</md-input-container>
-
-		<md-input-container class="" hide>
-			<label>{{ 'GRAPH_SCALE' | translate }}</label>
-			<md-select ng-model="Inputs.scale" aria-label="select">
-				<md-option value="Normal">Normal</md-option>
-				<md-option value="Log">logarithmic</md-option>
-			</md-select>
-		</md-input-container>
+			<md-button class="md-raised md-primary margin-but-top h40 text-bold" aria-label="Go" ng-click="run()">
+				<md-icon md-font-icon="fa-play margin-right"></md-icon>
+				{{ 'RUN_SIMULATION' | translate }}
+			</md-button>
 
 		</div>
-
-		<md-button class="md-raised md-primary margin-but-top h40 text-bold" aria-label="Go" ng-click="run()">
-			<md-icon md-font-icon="fa-play margin-right"></md-icon>
-			{{ 'RUN_SIMULATION' | translate }}
-		</md-button>
 
 	</div>
 
-	<div flex-gt-xs layout=column layout-gt-sm=row class="overflow-y">
+	<div class="only-on-print margin-bottom" layout>
+		<img src="img/Dorrasset.png" class="h40">
+		<span flex></span>
+		<h1 class="md-display-1 no-margin lh40">{{ 'APP_NAME' | translate }}</h1>
+	</div>
+	
+
+	<div id="SecondaryMain" flex-gt-xs layout=column layout-gt-sm=row class="overflow-y">
 
 		<div id="Results" flex-gt-sm class="" layout=column>
 			
-			<div id="Progress" flex layout layout-align="center center" ng-show="Inputs.calculating" class="mh80" style="">
+			<div id="Progress" flex layout layout-align="center center" ng-show="Inputs.calculating" class="mh80 not-on-print" style="">
 				<md-progress-circular md-mode="indeterminate"  md-diameter="60" ></md-progress-circular>
 				<img src="img/Dorrasset.png" class="h60 margin-left">
 			</div>
@@ -108,7 +119,21 @@
 
 		</div>
 
-		<div id="Results_Indicators" layout=column class="mw300 margin-but-top overflow" ng-show="Inputs.calcDone">
+		<div id="printedInputs" class="well border-radius only-on-print" layout=column>
+			<md-subheader class="md-primary text-bold no-padding margin">{{ 'PARAMETERS' | translate }}</md-subheader>
+			<table class="Results_table">
+			<body>
+				<tr><td class="result-key">{{ 'STARTING_EQ' | translate }}</td>			<td class="result-value">{{ Inputs.currencySymbol }}{{ Inputs.startingEq }}</td></tr>
+				<tr><td class="result-key">{{ 'RISK_PER_TRADE' | translate }}</td>		<td class="result-value">{{ Inputs.riskType == 'Value' ? Inputs.currencySymbol : '' }}{{ Inputs.risk }}{{ Inputs.riskType == 'Percent' ? '%' : '' }}</td></tr>
+				<tr><td class="result-key">{{ 'WIN_PROB' | translate }}</td>			<td class="result-value">{{ Inputs.winProb }}%</td></tr>
+				<tr><td class="result-key">{{ 'WIN_LOSS_REL' | translate }}</td>		<td class="result-value">{{ Inputs.winRatio }}:1</td></tr>
+				<tr><td class="result-key">{{ 'TRADES_PER_RUN' | translate }}</td>		<td class="result-value">{{ Inputs.trades }}</td></tr>
+				<tr><td class="result-key">{{ 'RUNS_LINES' | translate }}</td>			<td class="result-value">{{ Inputs.runs }}</td></tr>
+			</body>
+			</table>
+		</div>
+
+		<div id="Results_Indicators" layout=column class="mw320 margin-but-top overflow" ng-show="Inputs.calcDone">
 			<div class="well border-radius margin-bottom"  layout=column md-whiteframe=1>
 				<md-subheader class="md-primary text-bold no-padding margin">{{ 'RESULTS' | translate }}</md-subheader>
 				<table class="Results_table">
@@ -129,13 +154,20 @@
 				</table>
 				
 			</div>
-			<span flex></span>
+			<span hide flex></span>
 
-			<md-button class="well md-raised md-primarys text-bold" aria-label="btn"
-				csv-header="CSVHeaders" ng-csv="getCSV" filename="SimulationData.csv" field-separator=";">
-				<md-icon md-font-icon="fa-download"></md-icon>
-				{{ 'DOWNLOAD_DATA' | translate }}
-			</md-button>
+			<div layout class="not-on-print">
+				<md-button class="well md-raised md-primarys text-bold no-margin-left" aria-label="btn" print-this="#Main">
+					<md-icon md-font-icon="fa-print"></md-icon>
+					{{ 'PRINT' | translate }}
+				</md-button>
+				<md-button flex class="well md-raised md-primarys text-bold no-margin-left no-margin-right" aria-label="btn"
+					csv-header="CSVHeaders" ng-csv="getCSV" filename="SimulationData.csv" field-separator=";">
+					<md-icon md-font-icon="fa-download"></md-icon>
+					{{ 'DOWNLOAD_DATA' | translate }}
+				</md-button>
+			</div>
+
 		</div>
 	</div>
 

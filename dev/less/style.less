@@ -34,6 +34,28 @@ html{
 .border-radius{ border-radius: 5px; }
 .border-rounded{ border-radius: 500px; }
 
+.only-on-print{ display: none; }
+@media print{
+    .not-on-print{ display: none; }
+    .on-print{ display: initial !important; }
+    .only-on-print{ 
+        display: initial;
+        &.layout, &.layout-column, &.layout-row{ display: flex; }
+    }
+    .no-padding-on-print{ padding: 0 !important; }
+
+    //#SecondaryMain{     flex-direction: row !important; flex-wrap: wrap; }
+    #printedInputs{  }
+    #Results{ width: 100% !important;  }
+    #Results_Indicators{ margin: 10px 0 0 !important; }
+
+    .Results_table{
+        .md-icon-button{ display: none; }
+        .result-key { padding: 0px 0 0px 15px !important; }
+    }
+
+}
+
 .dashed {
     stroke-dasharray: 5,5;
 }
@@ -148,6 +170,7 @@ html{
 .lh25, .lh25 .md-button{ line-height: 25px !important; }
 .lh30, .lh30 .md-button{ line-height: 30px !important; }
 .lh40, .lh40 .md-button{ line-height: 40px !important; }
+.lh50, .lh50 .md-button{ line-height: 50px !important; }
 .lh100p, .lh100p .md-button{ line-height: 100% !important; }
 
 .text-icon{

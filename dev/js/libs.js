@@ -1,3 +1,4 @@
+//@koala-prepend "libs/jquery.min.js";
 //@koala-prepend "libs/angular.min.js";
 //@koala-prepend "libs/angular-animate.min.js";
 //@koala-prepend "libs/angular-aria.min.js";
@@ -10,3 +11,4 @@
 //@koala-prepend "libs/angular-nvd3.min.js";
 //@koala-prepend "libs/ng-csv.js";
 //@koala-prepend "libs/ngStorage.min.js";
+//@koala-prepend "libs/printThis.js";

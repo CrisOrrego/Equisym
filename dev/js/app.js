@@ -7,6 +7,7 @@ app = angular.module('Equisym',
 	'nvd3',
 	'pascalprecht.translate',
 	'ngStorage',
+	'printThis',
 
 	'appConfig',
 
